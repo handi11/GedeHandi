@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UTS Pemograman Web</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="sampul-atas">
+        <div class="tagline-atas">
+          <h3>{{ taglineAtas }}</h3>
+        </div>
+      </div>
+      <div class="tampilan-produk">
+        <div class="wadah-produk">
+          <div class="gambar-produk">
+            <img v-bind:src="image">
+          </div>
+          <div class="informasi-produk">
+            <h1>{{ taglineTengah }}</h1>
+            <p>{{ deskripsiProduk }}</p>
+            <p v-if="inventory > 10">Available: Keju, Balado, Extra Pedas</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Stok Hampir Habis!</p>
+            <p v-else>Stok Habis</p>
+            <p v-if="Tersedia">Stok Tersedia, Buruan Order!</p>
+            <div class="informasi-kontak">
+              <p>{{ infoKontak }}</p>
+            </div>
+            <a :href="url">Local Balinese Snack By @keripik.patahhati</a>
+          </div>
+        </div>
+        <div class="tagline-bawah">
+          <h3>{{ taglineBawah }}</h3>
+          <div class="deskripsi-bawah">
+            <p>{{ information }}</p>
+          </div>
+        </div>
+        <div class="info-email">
+          <h3>{{ email }}</h3>
+          <h3>{{ infoEmail }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>
